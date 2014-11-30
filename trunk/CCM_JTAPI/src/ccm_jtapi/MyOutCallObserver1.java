@@ -2,9 +2,7 @@ package ccm_jtapi;
 
 import javax.telephony.*;
 import javax.telephony.events.*;
-
 /* The MyOutCallObserver class implements the CallObserver interface and receives all events associated with the Call. */
-
 public class MyOutCallObserver1 implements CallObserver {
 
    @Override
