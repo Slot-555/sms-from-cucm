@@ -19,7 +19,6 @@ provider = peer.getProvider("10.0.3.3;login=recording;passwd=recording");
 try {
 //Address srcAddr = provider.getAddress("5215");
 //srcAddr.addCallObserver(new MyCallCtlInCallObserver());
-    
 //Terminal terminal = provider.getTerminal("hecgjlvex1");
 //terminal.addCallObserver(new MyCallCtlInCallObserver());
     
