@@ -27,7 +27,6 @@ public class MakeCall
 		});
 		inService.waitTrue();
 
-		/* get an object for the calling terminal */
 		Address srcAddr = provider.getAddress("5215");
 		srcAddr.addCallObserver(new CallObserver() {
                         @Override
@@ -36,18 +35,7 @@ public class MakeCall
 			}
 		});
 
-		/* and make the call */
-		//Call call = provider.createCall();
-		//call.connect(srcAddr.getTerminals()[0], srcAddr, dst);
+		Call call = provider.createCall();
+		call.connect(srcAddr.getTerminals()[0], srcAddr, "4403");
 	}
- 
-/*	public static void main(String[] args) {
-		try {
-			new MakeCall();
-		} catch (Exception e) {
-			e.printStackTrace();
-		} finally {
-			System.exit(0);
-		}
-	} */
 }
