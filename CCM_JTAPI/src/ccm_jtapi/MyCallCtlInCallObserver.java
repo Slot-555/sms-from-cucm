@@ -13,10 +13,9 @@ class MyCallCtlInCallObserver implements CallControlCallObserver {
 @Override
 public void callChangedEvent(CallEv[] evlist) {
 for (int i = 0; i < evlist.length; i++) {
-    if (evlist[i].getID() == CallCtlEv.CAUSE_CALL_NOT_ANSWERED ) { System.out.println("Потомучта не отвечаешь а?"); }
-    if (evlist[i].getID() == CallCtlTermConnTalkingEv.ID) { System.out.println("TALKING"); }
-    if (evlist[i].getID() == CallCtlTermConnRingingEv.ID) { System.out.println("RINGING"); }
-    if (evlist[i].getID() == CallCtlTermConnDroppedEv.ID) { System.out.println("DROPPED"); }
+    if (evlist[i].getID() == CallCtlTermConnTalkingEv.ID)       { System.out.println("TALKING"); }
+    if (evlist[i].getID() == CallCtlTermConnRingingEv.ID)       { System.out.println("RINGING"); }
+    if (evlist[i].getID() == CallCtlTermConnDroppedEv.ID)       { System.out.println("DROPPED"); }
     //System.out.println(evlist[i].getID());
 }
 }
