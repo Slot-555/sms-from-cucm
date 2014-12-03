@@ -14,10 +14,13 @@ public static final void main(String args[]) {
 
 Provider provider = null;
 try {
+//int ID = args[0];
 JtapiPeer peer = (CiscoJtapiPeer) JtapiPeerFactory.getJtapiPeer(null);
 provider = (CiscoProvider) peer.getProvider("10.0.3.3;login=recording;passwd=recording");
 CiscoCall calls;
-//    calls = provider.getCall(args[1]);
+
+CiscoProvider provider2 = (CiscoProvider) provider;
+//calls = provider2.getCall(args[1]);
 } catch (Exception excp) { System.out.println("Can't get Provider: " + excp.toString()); }
 
 try {
