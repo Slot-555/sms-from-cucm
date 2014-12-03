@@ -1,8 +1,6 @@
 package ccm_jtapi;
 
 import javax.telephony.callcontrol.CallControlCallObserver;
-import javax.telephony.callcontrol.events.CallCtlConnFailedEv;
-import javax.telephony.callcontrol.events.CallCtlEv;
 import javax.telephony.callcontrol.events.CallCtlTermConnDroppedEv;
 import javax.telephony.callcontrol.events.CallCtlTermConnRingingEv;
 import javax.telephony.callcontrol.events.CallCtlTermConnTalkingEv;
