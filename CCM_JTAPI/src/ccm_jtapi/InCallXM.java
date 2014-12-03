@@ -1,5 +1,6 @@
 package ccm_jtapi;
 
+import com.cisco.jtapi.extensions.CiscoCall;
 import com.cisco.jtapi.extensions.CiscoJtapiPeer;
 import com.cisco.jtapi.extensions.CiscoProvider;
 import javax.telephony.*;
@@ -15,6 +16,8 @@ Provider provider = null;
 try {
 JtapiPeer peer = (CiscoJtapiPeer) JtapiPeerFactory.getJtapiPeer(null);
 provider = (CiscoProvider) peer.getProvider("10.0.3.3;login=recording;passwd=recording");
+CiscoCall calls;
+//    calls = provider.getCall(args[1]);
 } catch (Exception excp) { System.out.println("Can't get Provider: " + excp.toString()); }
 
 try {
