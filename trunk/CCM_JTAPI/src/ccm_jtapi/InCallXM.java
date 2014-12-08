@@ -20,7 +20,7 @@ provider = (CiscoProvider) peer.getProvider("10.0.3.3;login=recording;passwd=rec
 CiscoCall calls;
 
 CiscoProvider provider2 = (CiscoProvider) provider;
-//calls = provider2.getCall(args[1]);
+//calls = provider2.getCall(Integer.parseInt(args[1]));
 } catch (Exception excp) { System.out.println("Can't get Provider: " + excp.toString()); }
 
 try {
