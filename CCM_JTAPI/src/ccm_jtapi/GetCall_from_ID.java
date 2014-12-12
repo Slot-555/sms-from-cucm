@@ -3,7 +3,6 @@ package ccm_jtapi;
 import com.cisco.jtapi.extensions.CiscoCall;
 import com.cisco.jtapi.extensions.CiscoJtapiPeer;
 import com.cisco.jtapi.extensions.CiscoProvider;
-import javax.telephony.*;
 import javax.telephony.Provider;
 import javax.telephony.JtapiPeer;
 import javax.telephony.JtapiPeerFactory;
