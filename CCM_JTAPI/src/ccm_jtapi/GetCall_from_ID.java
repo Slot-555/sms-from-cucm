@@ -12,14 +12,20 @@ public class GetCall_from_ID{
 
 public static final void main(String args[]) {
 
-Provider provider = null;
+Provider prov = null;
 try {
 JtapiPeer peer = (CiscoJtapiPeer) JtapiPeerFactory.getJtapiPeer(null);
-provider = (CiscoProvider) peer.getProvider("10.0.3.3;login=recording;passwd=recording");
+prov = (CiscoProvider) peer.getProvider("10.0.3.3;login=recording;passwd=recording");
 CiscoCall call;
-
-CiscoProvider provider2 = (CiscoProvider) provider;
-call = provider2.getCall(Integer.parseInt(args[1]));
+CiscoProvider CiscoProv = (CiscoProvider) prov;
+//call = CiscoProv.getCall(Integer.parseInt(args[1]));
+call = CiscoProv.getCall(Integer.parseInt("18695959"));
+//call = CiscoProv
+if (call != null) {
+System.out.println( "Called: " + call.getCalledAddress());
+System.out.println( "Calling: " + call.getCallingAddress());
+}
+else {System.out.println("Call is null ");}
 } catch (Exception excp) { System.out.println("Can't get Provider: " + excp.toString()); }
 
 }
