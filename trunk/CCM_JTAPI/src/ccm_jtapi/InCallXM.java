@@ -14,7 +14,6 @@ public static final void main(String args[]) {
 
 Provider provider = null;
 try {
-//int ID = args[0];
 JtapiPeer peer = (CiscoJtapiPeer) JtapiPeerFactory.getJtapiPeer(null);
 provider = (CiscoProvider) peer.getProvider("10.0.3.3;login=recording;passwd=recording");
 CiscoCall calls;
