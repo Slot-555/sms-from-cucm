@@ -18,7 +18,8 @@ prov = (CiscoProvider) peer.getProvider("10.0.3.3;login=recording;passwd=recordi
 CiscoCall call;
 CiscoProvider CiscoProv = (CiscoProvider) prov;
 //call = CiscoProv.getCall(Integer.parseInt(args[1]));
-call = CiscoProv.getCall(Integer.parseInt("18695959"));
+//call = CiscoProv.getCall(Integer.parseInt("18695959"));
+call = CiscoProv.getCall(18695959);
 //call = CiscoProv
 if (call != null) {
 System.out.println( "Called: " + call.getCalledAddress());
