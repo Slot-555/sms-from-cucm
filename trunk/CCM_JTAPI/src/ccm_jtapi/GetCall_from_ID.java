@@ -17,14 +17,15 @@ CiscoProvider prov = (CiscoProvider) peer.getProvider("10.0.3.3;login=recording;
 
 //CiscoAddress srcAddr = (CiscoAddress) prov.getAddress("5215");
 //srcAddr.addCallObserver(null);
+//prov.addObserver(null);
 //final Condition inService = new Condition();
-//inService.set();
+//boolean ins = inService.waitTrue();
 
 CiscoCall call;
 //call = CiscoProv.getCall(Integer.parseInt(args[1]));
 //call = CiscoProv.getCall(Integer.parseInt("18695959"));
-//System.out.println(prov.getCalls() );
-call = prov.getCall(18778489);
+System.out.println(prov.getCalls() );
+call = prov.getCall(18779619);
 //call = CiscoProv
 if (call != null) {
 System.out.println( "Called: " + call.getCalledAddress());
