@@ -7,7 +7,7 @@ import javax.telephony.callcontrol.events.CallCtlTermConnTalkingEv;
 import javax.telephony.events.CallEv;
 
 class MyCallCtlInCallObserver implements CallControlCallObserver {
-
+    
 @Override
 public void callChangedEvent(CallEv[] evlist) {
 for (int i = 0; i < evlist.length; i++) {
