@@ -9,14 +9,20 @@ import com.cisco.jtapi.extensions.CiscoProviderObserver;
 import java.util.Arrays;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javax.telephony.Call;
+import javax.telephony.CallObserver;
 import javax.telephony.InvalidArgumentException;
 import javax.telephony.JtapiPeerFactory;
 import javax.telephony.JtapiPeerUnavailableException;
 import javax.telephony.MethodNotSupportedException;
 import javax.telephony.ProviderObserver;
 import javax.telephony.ResourceUnavailableException;
+import javax.telephony.Terminal;
+import javax.telephony.TerminalObserver;
+import javax.telephony.events.CallEv;
 import javax.telephony.events.ProvEv;
 import javax.telephony.events.ProvInServiceEv;
+import javax.telephony.events.TermEv;
 
 public class GetCall_from_ID {
         Condition inService = new Condition();
@@ -34,11 +40,24 @@ public class GetCall_from_ID {
 				}
 			}
 		});
-        System.out.println("Before wait " + Arrays.toString(prov.getCalls()) );
         inService.waitTrue();
-        System.out.println("After wait " + Arrays.toString(prov.getCalls()) );
-        
-//        CiscoCall call = prov.getCall(18811012);
+        Terminal[] ts = prov.getTerminals();
+        Terminal term = prov.getTerminals()[0];
+                term.addCallObserver((CallObserver) new CallObserver(){
+            @Override
+            public void callChangedEvent(CallEv[] callevs) {
+                throw new UnsupportedOperationException("Not supported yet.");
+            }
+        } );
+                term.addObserver((TerminalObserver) new TerminalObserver() {
+            @Override
+            public void terminalChangedEvent(TermEv[] termevs) {
+                throw new UnsupportedOperationException("Not supported yet.");
+            }
+        });
+
+        System.out.println("All calls: " + Arrays.toString(prov.getCalls()) );        
+//        CiscoCall call = prov.getCall(18860149);
 //        if (call != null) {
 //            System.out.println( "Called: " + call.getCalledAddress());
 //            System.out.println( "Calling: " + call.getCallingAddress());
