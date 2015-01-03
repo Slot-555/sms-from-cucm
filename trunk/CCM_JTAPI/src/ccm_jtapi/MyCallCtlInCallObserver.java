@@ -1,5 +1,6 @@
 package ccm_jtapi;
 
+import com.cisco.jtapi.extensions.CiscoCall;
 import javax.telephony.callcontrol.CallControlCallObserver;
 import javax.telephony.callcontrol.events.CallCtlTermConnDroppedEv;
 import javax.telephony.callcontrol.events.CallCtlTermConnRingingEv;
@@ -13,7 +14,13 @@ public void callChangedEvent(CallEv[] evlist) {
 for (int i = 0; i < evlist.length; i++) {
     if (evlist[i].getID() == CallCtlTermConnTalkingEv.ID)       { System.out.println("TALKING"); }
     if (evlist[i].getID() == CallCtlTermConnRingingEv.ID)       { System.out.println("RINGING"); }
-    if (evlist[i].getID() == CallCtlTermConnDroppedEv.ID)       { System.out.println("DROPPED"); }
+    if (evlist[i].getID() == CallCtlTermConnDroppedEv.ID)       { 
+        System.out.println("DROPPED");
+        CiscoCall call = (CiscoCall) evlist[i].getCall();
+        System.out.println( "Called:  " + call.getCalledAddress());
+        System.out.println( "Calling: " + call.getCallingAddress());
+        System.out.println( "Call ID: " + call.getCallID());
+    }
     //System.out.println(evlist[i].getID());
 }
 }
