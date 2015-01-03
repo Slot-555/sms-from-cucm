@@ -1,22 +1,13 @@
 package ccm_jtapi;
 
 import com.cisco.cti.util.Condition;
-import com.cisco.jtapi.extensions.CiscoAddress;
 import com.cisco.jtapi.extensions.CiscoCall;
 import com.cisco.jtapi.extensions.CiscoJtapiPeer;
 import com.cisco.jtapi.extensions.CiscoProvider;
-import com.cisco.jtapi.extensions.CiscoProviderObserver;
 import java.util.Arrays;
-import java.util.logging.Level;
-import java.util.logging.Logger;
-import javax.telephony.Call;
 import javax.telephony.CallObserver;
-import javax.telephony.InvalidArgumentException;
 import javax.telephony.JtapiPeerFactory;
-import javax.telephony.JtapiPeerUnavailableException;
-import javax.telephony.MethodNotSupportedException;
 import javax.telephony.ProviderObserver;
-import javax.telephony.ResourceUnavailableException;
 import javax.telephony.Terminal;
 import javax.telephony.TerminalObserver;
 import javax.telephony.events.CallEv;
@@ -42,7 +33,8 @@ public class GetCall_from_ID {
 		});
         inService.waitTrue();
         Terminal[] ts = prov.getTerminals();
-        Terminal term = prov.getTerminals()[0];
+        Terminal term = prov.getTerminals()[4];
+        System.out.println(term.getName());
                 term.addCallObserver((CallObserver) new CallObserver(){
             @Override
             public void callChangedEvent(CallEv[] callevs) {
@@ -57,12 +49,12 @@ public class GetCall_from_ID {
         });
 
         System.out.println("All calls: " + Arrays.toString(prov.getCalls()) );        
-//        CiscoCall call = prov.getCall(18860149);
-//        if (call != null) {
-//            System.out.println( "Called: " + call.getCalledAddress());
-//            System.out.println( "Calling: " + call.getCallingAddress());
-//        }
-//        else {System.out.println("Call is null ");}
+        CiscoCall call = prov.getCall(19193385);
+        if (call != null) {
+            System.out.println( "Called: " + call.getCalledAddress());
+            System.out.println( "Calling: " + call.getCallingAddress());
+        }
+        else {System.out.println("Call is null ");}
         
     }
     
