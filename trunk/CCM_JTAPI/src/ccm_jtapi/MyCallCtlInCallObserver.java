@@ -20,6 +20,7 @@ for (int i = 0; i < evlist.length; i++) {
         System.out.println( "Called:  " + call.getCalledAddress());
         System.out.println( "Calling: " + call.getCallingAddress());
         System.out.println( "Call ID: " + call.getCallID());
+        System.out.println( "Call Global ID: " + call.getCallID().getGlobalCallID());
     }
     //System.out.println(evlist[i].getID());
 }
