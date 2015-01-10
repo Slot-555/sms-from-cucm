@@ -4,6 +4,8 @@ import com.cisco.cti.util.Condition;
 import com.cisco.jtapi.extensions.CiscoCall;
 import com.cisco.jtapi.extensions.CiscoJtapiPeer;
 import com.cisco.jtapi.extensions.CiscoProvider;
+import com.cisco.jtapi.extensions.CiscoRTPHandle;
+import com.cisco.jtapi.extensions.CiscoTerminal;
 import java.util.Arrays;
 import javax.telephony.CallObserver;
 import javax.telephony.JtapiPeerFactory;
@@ -32,8 +34,8 @@ public class GetCall_from_ID {
 			}
 		});
         inService.waitTrue();
-        Terminal[] ts = prov.getTerminals();
-        Terminal term = prov.getTerminals()[4];
+//        Terminal[] ts = prov.getTerminals();
+        CiscoTerminal term = (CiscoTerminal) prov.getTerminals()[4];
         System.out.println(term.getName());
                 term.addCallObserver((CallObserver) new CallObserver(){
             @Override
@@ -48,8 +50,10 @@ public class GetCall_from_ID {
             }
         });
 
-        System.out.println("All calls: " + Arrays.toString(prov.getCalls()) );        
-        CiscoCall call = prov.getCall(19193385);
+        System.out.println("All calls: " + Arrays.toString(prov.getCalls()) );
+        System.out.println("Term connection: " + Arrays.toString(term.getTerminalConnections()));
+        //CiscoCall call = prov.getCall(19198304);
+        CiscoCall call = prov.getCall(19198304);
         if (call != null) {
             System.out.println( "Called: " + call.getCalledAddress());
             System.out.println( "Calling: " + call.getCallingAddress());
@@ -57,8 +61,7 @@ public class GetCall_from_ID {
         else {System.out.println("Call is null ");}
         
     }
-    
-    
+
 public static final void main(String args[]) throws Exception {
             new GetCall_from_ID();
 }
