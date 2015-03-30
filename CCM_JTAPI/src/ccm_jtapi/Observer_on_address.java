@@ -9,6 +9,7 @@ import javax.telephony.JtapiPeer;
 import javax.telephony.JtapiPeerFactory;
 import javax.telephony.ProviderObserver;
 import javax.telephony.Terminal;
+import javax.telephony.TerminalObserver;
 import javax.telephony.events.ProvEv;
 import javax.telephony.events.ProvInServiceEv;
 
@@ -22,6 +23,7 @@ public class Observer_on_address{
 			public void providerChangedEvent (ProvEv [] eventList) {
 				if (eventList == null) return;
 				for (int i = 0; i < eventList.length; ++i) {
+                                    //System.out.println(eventList[i].getCause());
 					if (eventList[i] instanceof ProvInServiceEv) {
 						inService.set();
 					}
@@ -29,13 +31,15 @@ public class Observer_on_address{
 			}
 		});
         inService.waitTrue();
+        System.out.println("In servise.");
         CiscoAddress srcAddr = (CiscoAddress) provider.getAddress("5215");
         
-//        Terminal[] terminals = srcAddr.getTerminals();
+        Terminal[] terminals = srcAddr.getTerminals();
+        terminals[0].addObserver( new MyTerminalObserver());
 //        CiscoConnection c = (CiscoConnection) terminals[1].getTerminalConnections()[1].getConnection();
 //        System.out.println("--- Adding observer complit" + c.getConnectionID());
         
-        srcAddr.addCallObserver(new MyCallCtlInCallObserver());
+        //srcAddr.addCallObserver(new MyCallCtlInCallObserver());
         System.out.println("--- Adding observer complit");
     }
     

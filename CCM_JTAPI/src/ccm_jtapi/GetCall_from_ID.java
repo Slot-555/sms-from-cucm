@@ -62,7 +62,7 @@ public class GetCall_from_ID {
         
     }
 
-public static final void main(String args[]) throws Exception {
-            new GetCall_from_ID();
-}
+//public static final void main(String args[]) throws Exception {
+//            new GetCall_from_ID();
+//}
 }
