@@ -11,7 +11,6 @@ import javax.telephony.events.CallEv;
 
 class MyCallControlCallObserver implements CallControlCallObserver {
 
-    
 @Override
 public void callChangedEvent(CallEv[] evlist) {
     for (CallEv evlist1 : evlist) {
