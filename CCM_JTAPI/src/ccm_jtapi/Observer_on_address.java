@@ -34,12 +34,10 @@ public class Observer_on_address{
         System.out.println("In servise.");
         CiscoAddress srcAddr = (CiscoAddress) provider.getAddress("5215");
         
-        Terminal[] terminals = srcAddr.getTerminals();
-        terminals[0].addObserver( new MyTerminalObserver());
-//        CiscoConnection c = (CiscoConnection) terminals[1].getTerminalConnections()[1].getConnection();
-//        System.out.println("--- Adding observer complit" + c.getConnectionID());
+        //Terminal[] terminals = srcAddr.getTerminals();
+        //terminals[0].addObserver( new MyTerminalObserver());
         
-        //srcAddr.addCallObserver(new MyCallCtlInCallObserver());
+        srcAddr.addCallObserver(new MyCallControlCallObserver());
         System.out.println("--- Adding observer complit");
     }
     
