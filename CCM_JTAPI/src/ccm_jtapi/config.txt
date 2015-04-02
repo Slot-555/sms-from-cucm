@@ -1,0 +1,4 @@
+HOST = 10.0.3.3
+LOGIN = recording
+PASS = recording
+DN = 5215;5202

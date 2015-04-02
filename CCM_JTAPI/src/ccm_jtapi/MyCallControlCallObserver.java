@@ -26,19 +26,23 @@ public void callChangedEvent(CallEv[] evlist) {
 //            System.out.println( "Call Global Manager ID: " );
 //        }
 //        
-//        if (evlist1.getID() == CallCtlTermConnRingingEv.ID) {
-//            System.out.println("RINGING CiscoFeatureReason: " + ((CiscoCallEv)evlist1).getCiscoFeatureReason() );
-//        }
+        if (evlist1.getID() == CallCtlTermConnRingingEv.ID) {
+            System.out.println("RINGING CiscoFeatureReason: " + ((CiscoCallEv)evlist1).getCiscoFeatureReason() );
+        }
         
         if (evlist1.getID() == CallCtlTermConnDroppedEv.ID) {
             //System.out.println("DROPPED CiscoFeatureReason: " + ((CiscoCallEv)evlist1).getCiscoFeatureReason() );
             if (((CiscoCallEv)evlist1).getCiscoFeatureReason() == CiscoFeatureReason.REASON_FORWARDNOANSWER ){
                 System.out.println("Пролюбился звонок");
                 CiscoCall call = (CiscoCall) evlist1.getCall();
-                System.out.println( "Called:  " + call.getCalledAddress());
-                System.out.println( "Calling: " + call.getCallingAddress());
+                //System.out.println( "Called Num:  " + call.getCalledAddress());
+                //System.out.println( "Called Name:  " + call.getCurrentCalledPartyDisplayName());
+                System.out.println( "Calling Num: " + call.getCallingAddress());
+                System.out.println( "Calling Name: " + call.getCurrentCallingPartyDisplayName());
+                //System.out.println( "Calling GlobalizedName: " + call.getGlobalizedCallingParty());
                 System.out.println("-----------------");
             }
+            //System.out.println(((CiscoCallEv)evlist1).getCiscoFeatureReason());
         }
     }
 }
