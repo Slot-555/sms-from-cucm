@@ -27,7 +27,7 @@ public class Observer_on_address{
         String dn = props.getProperty("DN");
         
         JtapiPeer peer = (CiscoJtapiPeer) JtapiPeerFactory.getJtapiPeer(null);
-        CiscoProvider provider = (CiscoProvider) peer.getProvider("10.0.3.3;login=recording;passwd=recording");
+        CiscoProvider provider = (CiscoProvider) peer.getProvider(host + ";login=" + login + ";passwd=" + pass);
                 provider.addObserver(new ProviderObserver() {
                         @Override
 			public void providerChangedEvent (ProvEv [] eventList) {

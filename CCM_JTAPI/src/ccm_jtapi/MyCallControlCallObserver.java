@@ -3,6 +3,9 @@ package ccm_jtapi;
 import com.cisco.jtapi.extensions.CiscoCall;
 import com.cisco.jtapi.extensions.CiscoCallEv;
 import com.cisco.jtapi.extensions.CiscoFeatureReason;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import javax.telephony.ResourceUnavailableException;
 import javax.telephony.callcontrol.CallControlCallObserver;
 import javax.telephony.callcontrol.events.CallCtlTermConnDroppedEv;
 import javax.telephony.callcontrol.events.CallCtlTermConnRingingEv;
@@ -43,6 +46,11 @@ public void callChangedEvent(CallEv[] evlist) {
                 System.out.println("-----------------");
             }
             //System.out.println(((CiscoCallEv)evlist1).getCiscoFeatureReason());
+        }
+        try {
+            System.out.println("GetCalls on CallObserver return: "+((CiscoCallEv)evlist1).getCall().getProvider().getCalls());
+        } catch (ResourceUnavailableException ex) {
+            Logger.getLogger(MyCallControlCallObserver.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
 }
